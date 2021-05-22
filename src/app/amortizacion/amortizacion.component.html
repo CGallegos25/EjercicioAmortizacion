@@ -24,16 +24,16 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Tabla de Amortizacion</h2>
-                    <form  #formAmortizacion="ngForm" (ngSubmit)="getFormAmortizacion(); formAmortizacion.reset()">
+                    <form  #formAmortizacion="ngForm" (ngSubmit)="getFormAmortizacion();">
                         <div class="input-group">
                           <label for="monto">Monto del prestamo</label>
-                            <input class="input--style-2" type="numeric" name="monto" #monto="ngModel" placeholder="Monto" [(ngModel)]="amortizacionModel.monto">
+                            <input class="input--style-2" type="text" name="monto" placeholder="Monto" [(ngModel)]="amortizacionModel.monto">
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                   <label for="plazo">Plazo del prestamos</label>
-                                    <input class="input--style-2" type="numeric" name="plazo" #plazo="ngModel" placeholder="Plazo" [(ngModel)]="amortizacionModel.plazo">
+                                    <input class="input--style-2" type="text" name="plazo" placeholder="Plazo" [(ngModel)]="amortizacionModel.plazo">
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                           <div class="col-2">
                               <div class="input-group">
                                 <label for="tasa">Tasa de interes</label>
-                                  <input class="input--style-2" type="numeric" name="tasa" #tasa="ngModel" placeholder="Tasa de Interes" [(ngModel)]="amortizacionModel.tasa">
+                                  <input class="input--style-2" type="text" name="tasa" placeholder="Tasa de Interes" [(ngModel)]="amortizacionModel.tasa">
                               </div>
                           </div>
                       </div>
@@ -69,12 +69,12 @@
         <tbody>
           <tr *ngFor="let calulo of arrayLista; let i = index">
             <th scope="row">{{calulo.perido}}</th>
-            <td>{{calulo.deudaInicial}}</td>
+            <td>${{calulo.deudaInicial | number:'0.1-2'}}</td>
             <td>{{amortizacionModel.tasa}} %</td>
-            <td>{{calulo.interes}}</td>
-            <td>{{calulo.amortizacion}}</td>
-            <td>{{calulo.pago}}</td>
-            <td>{{calulo.deudaFinal}}</td>
+            <td>{{calulo.interes | number:'0.1-2'}}</td>
+            <td>{{calulo.amortizacion | number:'0.1-2'}}</td>
+            <td>${{calulo.pago | number:'0.1-2'}}</td>
+            <td>${{calulo.deudaFinal | number:'0.1-2'}}</td>
           </tr>
         </tbody>
       </table>

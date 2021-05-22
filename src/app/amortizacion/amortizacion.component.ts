@@ -1,3 +1,4 @@
+import { AmortizacionModel } from './../models/amortizacionModel';
 import { Calculos } from './../models/calculos';
 import { Component, OnInit } from '@angular/core';
 import { Amortizacion } from '../models/amortizacion';
@@ -9,11 +10,12 @@ import { Amortizacion } from '../models/amortizacion';
 })
 export class AmortizacionComponent implements OnInit {
 
-  public amortizacionModel = new Amortizacion(0, 0, 20);
+  public amortizacionModel:any;
   public calculos = new Calculos(0,0,0,0,0,0);
   public arrayLista:Array<Calculos> = [];
 
   constructor() {
+    this.amortizacionModel = new AmortizacionModel(0,0,20);
    }
 
   ngOnInit(): void {
@@ -41,8 +43,7 @@ export class AmortizacionComponent implements OnInit {
       }
     }
 
-    this.amortizacionModel = new Amortizacion(0, 0, 20);
-  }
+ }
 
   sumar(valor1:number, valor2:number){
     return (valor1+valor2);
