@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Tabla de Amortizacion</title>
+
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Tabla de Amortizacion</h2>
+                    <form  #formAmortizacion="ngForm" (ngSubmit)="getFormAmortizacion(); formAmortizacion.reset()">
+                        <div class="input-group">
+                          <label for="monto">Monto del prestamo</label>
+                            <input class="input--style-2" type="numeric" name="monto" #monto="ngModel" placeholder="Monto" [(ngModel)]="amortizacionModel.monto">
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                  <label for="plazo">Plazo del prestamos</label>
+                                    <input class="input--style-2" type="numeric" name="plazo" #plazo="ngModel" placeholder="Plazo" [(ngModel)]="amortizacionModel.plazo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                          <div class="col-2">
+                              <div class="input-group">
+                                <label for="tasa">Tasa de interes</label>
+                                  <input class="input--style-2" type="numeric" name="tasa" #tasa="ngModel" placeholder="Tasa de Interes" [(ngModel)]="amortizacionModel.tasa">
+                              </div>
+                          </div>
+                      </div>
+                        <div class="p-t-30">
+                            <button class="btn btn--radius btn--green" type="submit">Calcular</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="arrayLista.length > 0" class="table-wrapper-scroll-y my-custom-scrollbar">
+      <table class="table table-bordered table-striped mb-0">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Periodo</th>
+            <th scope="col">Deuda Inicial</th>
+            <th scope="col">Tasa de interes</th>
+            <th scope="col">Interes</th>
+            <th scope="col">Amortizacion</th>
+            <th scope="col">Pago</th>
+            <th scope="col">Deuda Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let calulo of arrayLista; let i = index">
+            <th scope="row">{{calulo.perido}}</th>
+            <td>{{calulo.deudaInicial}}</td>
+            <td>{{amortizacionModel.tasa}} %</td>
+            <td>{{calulo.interes}}</td>
+            <td>{{calulo.amortizacion}}</td>
+            <td>{{calulo.pago}}</td>
+            <td>{{calulo.deudaFinal}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+</body>
+
+</html>

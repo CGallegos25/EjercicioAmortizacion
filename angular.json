@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "890b771a-ff46-4215-a01a-8ac45bcbf6f5"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -28,9 +31,21 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/assets/amortizacion/select2.min.css",
+              "src/assets/amortizacion/material-design-iconic-font.min.css",
+              "src/assets/amortizacion/font-awesome.css",
+              "src/assets/amortizacion/daterangepicker.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/amortizacion/select2.min.js",
+              "src/assets/amortizacion/moment.min.js",
+              "src/assets/amortizacion/daterangepicker.js"
+            ]
           },
           "configurations": {
             "production": {
